@@ -1,0 +1,49 @@
+/*calender css*/
+.timeSlot{width: 15%; position: relative; color: #000; vertical-align: middle; padding: 10px;float: left; border:1px solid #ccc;text-align: center;display:inline list-item}
+.slot-label{
+    cursor: pointer; position: absolute;width: 100%;left: 0;top: 0; height: 100%;padding-top: 10px;font-weight: initial;
+}
+
+#show_time_slot .active{
+    background: #16A085 !important;
+    color: #fff;
+}
+#show_time_slot label {
+    cursor: pointer;
+    display: inline-block;
+    width: 115px;
+    max-width: 100%;
+    margin: -1px -2px;
+    font-weight: 500;
+    font-size: 12px;
+    border: 1px solid #eaeaea;
+    padding: 10px 0px 10px 7px;
+
+}
+#show_time_slot label:hover{
+    background: #16A085;
+    color: #fff;
+}
+
+/* ENd calender css*/
+
+.invalid-feedback{
+	font-weight: initial;
+	color: red;
+	font-size: 12px;
+}
+
+.time-slot .active{
+	background: red;
+}
+
+tr td {
+    cursor: pointer;
+    font-size: 13px;
+}
+#sitebar_calender h3{
+	font-size: 20px !important;
+}
+
+
+
