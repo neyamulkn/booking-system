@@ -53,9 +53,10 @@ File: scss
   background: #fff;
   position: absolute;
   cursor: auto;
-  top: 8px;
+  top: 7px;
   padding: 0px 5px;
   left: 4px;
+  font-weight: initial !important;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all; }

@@ -29,7 +29,8 @@
         }
 
         .today {
-            background: orange;
+            background: #16a085 !important;
+            color: #fff !important;
         }
 
 
@@ -104,8 +105,6 @@
     }
     ?>
 
-
-
     <h3>
     <!--  <select name="month_dropdown" id="month_dropdown"><?php echo getAllMonths($dateMonth); ?></select>
             <select name="year_dropdown" id="year_dropdown"><?php echo getYearList($dateYear); ?></select>  -->
@@ -119,29 +118,31 @@
             <a onclick="set_calender('<?php echo $next; ?>')">Next</a> </p>
 
     </h3>
+    <div style="position: relative;">
+        <div id="loadtime"></div>
+        <table class="table table-bordered">
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+            <?php
+            foreach ($weeks as $week) {
+                echo $week;
+            }
+            ?>
+        </table>
 
-    <table class="table table-bordered">
-        <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
-        </tr>
-        <?php
-        foreach ($weeks as $week) {
-            echo $week;
-        }
-        ?>
-    </table>
-
-    <form action="{{route('bookingSlot')}}" method="post">
-        @csrf
-        <div id="show_time_slot"></div>
+        <form action="{{route('bookingSlot')}}" method="post">
+            @csrf
+            <div id="show_time_slot"></div>
 
     </form>
+    </div>
 
 <?php }
 
@@ -193,18 +194,27 @@ function getYearList($selected = ''){
 
     <script type="text/javascript">
         @if($ym == date('Y-m'))
-        get_timeSlot('{{date("Y-m-d")}}');
+            get_timeSlot('{{date("Y-m-d")}}');
+        @else
+            get_timeSlot("{{$ym.'-1'}}");
         @endif
         function get_timeSlot(date){
+            document.getElementById('loadtime').style.display = "block";
             $.ajax({
                 type:'get',
                 url:'{{route("student.gettimeslot")}}',
                 data:{ym:date},
                 success:function(data) {
+                    document.getElementById('loadtime').style.display = "none";
                     document.getElementById('show_time_slot').innerHTML = data;
                 }
             });
         }
+    $('tr td').click(function() {
+        $('td').removeClass('today');
+        $(this).addClass('today');
+    });
+
 
     </script>
 

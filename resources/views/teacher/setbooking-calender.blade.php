@@ -14,6 +14,20 @@
   .class-record tr th{
     padding:10px 3px !important;
   }
+
+  #loadtime{
+    background: url("{{asset('images/loader.gif')}}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #00000005;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;   
+}
+
 </style>
 @include('teacher.menubar')
 <div class="container">
@@ -154,53 +168,53 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="Attendance">
-                   
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <span>From</span>
-                            <div id="dp-ex-3" class="input-group date" data-auto-close="true" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-autoclose="true">
-                                <input class="form-control" type="text">
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            </div>
-                        </div>
-                        <div class="col-sm-5">
-                            <span>To</span>
-                            <div id="dp-ex-4" class="input-group date" data-auto-close="true" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-autoclose="true">
-                                <input class="form-control" type="text">
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
+                     
+                      <div class="row">
+                          <div class="col-sm-4">
+                              <span>From</span>
+                              <div id="dp-ex-3" class="input-group date" data-auto-close="true" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-autoclose="true">
+                                  <input class="form-control" type="text">
+                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                              </div>
+                          </div>
+                          <div class="col-sm-5">
+                              <span>To</span>
+                              <div id="dp-ex-4" class="input-group date" data-auto-close="true" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-autoclose="true">
+                                  <input class="form-control" type="text">
+                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                              </div>
+                          </div>
+                          <div class="col-sm-3">
 
-                            <div style="padding-top: 25px;">
-                                <button class="btn-secondary ">
-                                    Ask for leave
-                                </button>
-                            </div>
-                        </div>
-                    </div> <!-- /.col --><br/>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table table-bordered table-highlight class-record">
-                                <thead>
-                                <tr>
-                                    <th>Events</th>
-                                    <th>Number of classes</th>
-                                    <th>Hours</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Total open time</td>
-                                    <td>1 view</td>
-                                    <td>5</td>
-                                   
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                              <div style="padding-top: 25px;">
+                                  <button class="btn-secondary ">
+                                      Ask for leave
+                                  </button>
+                              </div>
+                          </div>
+                      </div> <!-- /.col --><br/>
+                      <div class="row">
+                          <div class="col-md-12">
+                              <table class="table table-bordered table-highlight class-record">
+                                  <thead>
+                                  <tr>
+                                      <th>Events</th>
+                                      <th>Number of classes</th>
+                                      <th>Hours</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                      <td>Total open time</td>
+                                      <td>1 view</td>
+                                      <td>5</td>
+                                     
+                                  </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
                 </div>
           </div>
         </div>
@@ -224,7 +238,7 @@
             <div class="portlet-content">
 
               <div class="sitebar">
-                 @include('both.calender-sitebar')
+                 @include('common.calender-sitebar')
 
               </div>
 
@@ -323,9 +337,15 @@
 
   $(document).ready(function(){
       get_timeSlot('{{ (Session::get("slotDate") ) ? Session::get("slotDate") : date("Y-m-d")}}');
-
   });
+
+  $('tr td').click(function() {
+      $('td').removeClass('today');
+      $(this).addClass('today');
+  });
+
   </script>
+
 
 
 @endsection

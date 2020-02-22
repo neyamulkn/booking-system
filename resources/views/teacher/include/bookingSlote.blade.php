@@ -5,7 +5,7 @@
 <!-- // if date exist then retrive time slot from database -->
     @if(count($get_avaible_time)>0)
         @foreach ($get_avaible_time as $avaible_time)
-           <label  onclick="colorToggle(<?php echo $avaible_time->id; ?>)" id="label<?php echo $avaible_time->id; ?>" <?php echo ($avaible_time->booking_id != 0 ? 'class="booked" title="This time is booked by '.$avaible_time->user->name.'"' : ($avaible_time->status == 1 ? 'class="active"' : '' )); ?> for="<?php echo $avaible_time->id; ?>">
+           <label  onclick="colorToggle(<?php echo $avaible_time->id; ?>)" id="label<?php echo $avaible_time->id; ?>" <?php echo ($avaible_time->bookingSlot ? 'class="booked" title="This time is booked"' : ($avaible_time->status == 1 ? 'class="active"' : '' )); ?> for="<?php echo $avaible_time->id; ?>">
             <?php echo $avaible_time->slotTime; ?>
             </label>
             <input type="hidden" name="totalSlots[<?php echo $avaible_time->slotTime; ?>]">

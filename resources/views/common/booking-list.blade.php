@@ -1,5 +1,5 @@
 <style type="text/css">
-  .course-metetial span{
+  .course-metetial a{
     margin:5px;
 }
 
@@ -24,18 +24,26 @@
         <div class="row">
           <div class="col-xs-10">
             <div class="row">
-              <div class="col-xs-4"><strong>Dhaka Time</strong><br/>  {{$booking_list->slotTime}}</div>   
-              <div class="col-xs-4 col-sm-3">  <strong>Duration</strong><br/> 30 Minutes </div> 
+              <div class="col-xs-4"><strong>Dhaka Time</strong><br/>  {{$booking_list->slotTime}}</div>
+              <div class="col-xs-4 col-sm-3">  <strong>Duration</strong><br/> 30 Minutes </div>
               <div class="col-sm-5 col-xs-12" style="text-align: center;"><strong> Commulative Number</strong><br/> 40 </div>
             </div>
-            <img src="{{asset('images')}}/avatars/avatar-1-md.jpg" alt="Avatar" class="panel-list-avatar">
+            <img src="{{asset('images/users/avaters/'.$booking_list->user->image)}}" alt="Avatar" class="panel-list-avatar">
             <div class="panel-list-content course-metetial">
                 <p class="panel-list-meta"> <strong>Name:</strong> {{$booking_list->user->name}} <span style="float: right;"><strong>Class Type:</strong> Group Class</span></p>
-                <a class="panel-list-title"><strong>Course : </strong> Proin malesuada consectetur lectus.</a>
-                
-                <div ><strong>Download:</strong>
-                  <span class="label label-info"> PPT Slide </span>  
-                  <span class="label label-info"> PPT Slide </span>  </div>
+                <!-- <a class="panel-list-title"><strong>Course : </strong>@if($booking_list->ClassMaterials) nai @else Course not set @endif</a>
+ -->
+                <div><strong>Download:</strong>
+                  @if($booking_list->ClassMaterials)
+                  @foreach($booking_list->ClassMaterials as $material)
+                  <a href="{{ asset('materials/'.$material->teachingMaterial->course_material) }} " target="_blank" class="label label-info"> {{$material->teachingMaterial->course_name}} </a>
+                  @endforeach
+                  <a href="{{route('teaching.material', [$booking_list->id])}}" target="_blank" class="label label-info">Change Teaching Materails </a>
+                  @else
+
+                  <a href="{{route('teaching.material', [$booking_list->id])}}" target="_blank" class="label label-info">Add Teaching Materails </a>
+                  @endif
+                </div>
             </div>
           </div>
           <div class="col-xs-2">

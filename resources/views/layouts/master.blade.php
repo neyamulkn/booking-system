@@ -356,7 +356,7 @@
   <![endif]-->
   
   <!-- Plugin JS -->
-  <script src="{{asset('scripts/js')}}/plugins/icheck/jquery.icheck.js"></script>
+
   <script src="{{asset('scripts/js')}}/plugins/select2/select2.js"></script>
   <script src="{{asset('scripts/js')}}/libs/raphael-2.1.2.min.js"></script>
   <script src="{{asset('scripts/js')}}/plugins/morris/morris.min.js"></script>

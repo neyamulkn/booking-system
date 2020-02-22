@@ -23,7 +23,7 @@
       <div class="portlet">
 
         <div class="portlet-content">
-          <form action="{{ route('ratting.store') }}" class="floating-labels" method="post">
+          <form action="{{ route('admin.ratting.store') }}" class="floating-labels" method="post">
             @csrf
           <div class="row">
 

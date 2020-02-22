@@ -11,14 +11,15 @@ use Intervention\Image\Facades\Image;
 class UserController extends Controller
 {
     public function userImageUpdate(Request $request){
-
-
+        
         $user_id = Auth::user()->id;
         $this->validate($request, [
             'user_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
         $image = $request->file('user_image');
-        echo $image_name = $this->uniquePath($image->getClientOriginalName());
+       $image_name = $this->uniquePath($image->getClientOriginalName());
+
+
         $image_path = public_path('images/users/avaters/'.$image_name );
         $image_resize = Image::make($image);
         $image_resize->resize(60, 60);
@@ -45,7 +46,7 @@ class UserController extends Controller
         if (count($check_path)>0){
             //find until find not used.
             for ($i = 1; $i <= count($check_path); $i++) {
-                $newPath = $i.'-'.$path;
+                $newPath = $i.$path;
                 if (!$check_path->contains('image', $newPath)) {
                     return $newPath;
                 }

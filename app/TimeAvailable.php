@@ -11,4 +11,10 @@ class TimeAvailable extends Model
     public function user(){
     	return $this->belongsTo(User::class, 'booking_id');
     }
+    public function bookingSlot(){
+       return $this->hasOne(BookingSlot::class, 'slote_id');
+    }
+    public function ClassMaterials(){
+    	return $this->hasMany(ClassMaterial::class, 'slote_id');
+    }
 }

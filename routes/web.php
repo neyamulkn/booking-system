@@ -12,14 +12,19 @@
 */
 
 // admin route
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group( function() {
+	Route::get('material/subject', 'MaterialSubjectController@index')->name('subjects');
+	Route::post('material/subject/store', 'MaterialSubjectController@store')->name('subject.store');
+	Route::get('material/subject/delete', 'MaterialSubjectController@delete()')->name('subject.delete');
+
 	Route::get('ratting/create', 'RattingListController@create')->name('ratting.create');
 	Route::post('ratting/store', 'RattingListController@store')->name('ratting.store');
 });
 
 Route::get('teachar/setbooking/calender', 'SetTimeSlotController@booking')->name('setbooking.calender');
 
-// this route teacher & student for both
+// this route teacher & student for both 
 
 Route::post('userImage/Update', 'UserController@userImageUpdate')->name('userImageUpdate');
 
@@ -32,6 +37,11 @@ Route::get('sidebar/booking/list', 'BookingSlotController@get_booking_list')->na
 Route::get('class/record', 'ClassRecordController@class_records')->name('class_records');
 
 Route::post('class/feeback', 'FeadbackController@feeback')->name('feeback');
+
+Route::get('teaching/material/{slote_id?}', 'TeachingMaterialController@index')->name('teaching.material');
+Route::post('teaching/material/store', 'TeachingMaterialController@store')->name('material.store');
+Route::post('teaching/material/AddRemove', 'TeachingMaterialController@materialAddRemove')->name('materialAddRemove');
+Route::get('teaching/material/delete/{id}', 'TeachingMaterialController@delete')->name('material.delete');
 
 
 Auth::routes(['verify' => true]);

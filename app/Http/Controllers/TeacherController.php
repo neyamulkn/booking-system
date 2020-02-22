@@ -6,39 +6,31 @@ use App\Package;
 use App\Teacher;
 use App\User;
 use App\TimeAvailable;
+use App\BookingSlot;
 use Illuminate\Support\Facades\Auth;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //get booking list by teacher id & date 
     public function bookingList()
     {
-        $booking_lists = TimeAvailable::with('user')->where('booking_id', '!=' , 0)->where('slotDate', date('Y-m-d'))->get();
+        $booking_lists = BookingSlot::with('user')->where('student_id', '!=' , 0)->where('slote_date', date('Y-m-d'))->get();
+       
         return view('teacher.booking-list')->with(compact('booking_lists'));
     }
-
+    // Booking calender 
     public function timeSlotCalender()
     {
         return view('teacher.setbooking-calender');
     }
-
+    // get all student list
     public function students(){
         $students = User::where('user_roleID', 3)->get();
         return view('teacher.students')->with(compact('students'));
     }
-    public function package()
-    {
-        $user_id = Auth::user()->id;
-        $get_packages = Package::where('teacherId', $user_id)->where('status', 1)->get();
 
-        return view('teacher.packages')->with(compact('get_packages'));
-    }
 
 
 

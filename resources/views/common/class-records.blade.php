@@ -285,7 +285,7 @@
             <div class="portlet-content">
 
               <div class="sitebar">
-                 @include('both.calender-sitebar')
+                 @include('common.calender-sitebar')
 
               </div>
 

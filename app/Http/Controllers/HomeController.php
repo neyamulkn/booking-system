@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $userIfno = User::find(Auth::user()->id);
-
+        
         if($userIfno->user_roleID == env('TEACHAR')){
             return view('teacher.index')->with(compact('userIfno'));
         }

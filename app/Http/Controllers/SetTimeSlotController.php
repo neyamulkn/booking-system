@@ -23,10 +23,13 @@ class setTimeSlotController extends Controller
         $data['interval'] = 30;
     	$data['slotDate'] = $request->ym;
 
-        $data['get_avaible_time'] = TimeAvailable::where('slotDate', $data['slotDate'])->get();
+        $data['get_avaible_time'] = TimeAvailable::with(['bookingSlot' => function($query){  // check booking status active
+            $query->where('booking_status', 1); }])->where('slotDate', $data['slotDate'])->get();
         //multi teacher
         //$teacher_id = Auth::user()->id;
-        // $get_avaible_time = TimeAvailable::where('slotDate', $data['slotDate'])->where('teacher_id', $teacher_id)->get();
+        // $get_avaible_time = TimeAvailable:::with(['bookingSlot' => function($query){ 
+        //     $query->where('booking_status', 1); }])->where('slotDate', $data['slotDate'])->where('teacher_id', $teacher_id)->get();
+        
         echo view('teacher.include.bookingSlote')->with($data);
 
     }
@@ -42,6 +45,7 @@ class setTimeSlotController extends Controller
                 'teacher_id' => $teacher_id,
                 'slotDate' => $request->slotDate,
                 'slotTime' => $slotTime,
+                'duration' => 30,
                 'status' => (isset($request->availableTime[$slotTime])) ? 1 : 0,
            ];
            if($check_avaible_time){
@@ -62,7 +66,7 @@ class setTimeSlotController extends Controller
 
     function calender_sitebar(Request $request){
         $ym_sitebar = $request->ym_sitebar;
-        echo view('both.calender-sitebar')->with(compact('ym_sitebar'));
+        echo view('common.calender-sitebar')->with(compact('ym_sitebar'));
     }
 
 

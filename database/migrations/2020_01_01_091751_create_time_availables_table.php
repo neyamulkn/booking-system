@@ -15,10 +15,13 @@ class CreateTimeAvailablesTable extends Migration
     {
         Schema::create('time_availables', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->tinyInteger('teacher_id');
+            $table->integer('teacher_id');
             $table->date('slotDate');
             $table->char('slotTime', 25);
-            $table->tinyInteger('booking_id')->default(0)->comment('booking student id');
+            $table->integer('type')->default(1)->comment('group(2) or single(1)');
+            $table->integer('maxStudent')->nullable();
+            $table->tinyInteger('duration')->nullable();
+            $table->text('notes')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });

@@ -12,7 +12,7 @@ class ClassRecordController extends Controller
     public function class_records()
     {
         $rattings = RattingList::where('status', 1)->get();
-        return view('both.class-records')->with(compact('rattings'));
+        return view('common.class-records')->with(compact('rattings'));
     }
 
     /**

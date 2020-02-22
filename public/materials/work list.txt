@@ -1,0 +1,11 @@
+1. Home page ( added sitebar and category section )
+2. Category selection input field change ( make popup modal box as like bikroy.com)
+3. Location selection input field ( make popup modal box as like bikroy.com)
+4. Category page added sitebar
+5. Post search page added sitebar
+6. Post details page > change full description structure.
+7. Seller store page change full layouts
+8. Mobile responsive all pages
+9. Customize header & footer section 
+10. Some change admin pages
+11. left site and right site ( big, Small adjust when page scroll )

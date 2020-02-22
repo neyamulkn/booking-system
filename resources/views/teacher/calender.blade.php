@@ -11,14 +11,17 @@
     }
 
     .today {
-        background: orange;
+        background: #16a085 !important;
+        color: #fff !important;
+    }
+    .setDay{
+        color: #16a085;
     }
 
     .booked{
         background: #CC802B;
         color:#fff;
     }
-    
 
 </style>
 <?php
@@ -74,16 +77,13 @@ function get_celendar($ym){
 
         $date = $ym . '-' . $day;
         $get_avaible_time = App\TimeAvailable::where('slotDate', $date)->first();
-        $week .= '<td onclick="get_timeSlot('."'".$date."'".')" class="'.($today == $date ? "today ": "").($get_avaible_time ? "active " : "").'">' .$date;
+        $week .= '<td onclick="get_timeSlot('."'".$date."'".')" class="'.($today == $date ? "today" : ( ($ym . '-1' == $date) && ($today  <= $ym . '-1')  ? "today " :  "")).($get_avaible_time ? " setDay " : "").'">' .$date;
 
         $week .= '</td>';
 
         // End of the week OR End of the month
         if ($str % 7 == 6 || $day == $day_count) {
-            if ($day == $day_count) {
-                // Add empty cell
-                $week .= str_repeat('<td></td>', 6 - ($str % 7));
-            }
+            
             $weeks[] = '<tr>' . $week . '</tr>';
             // Prepare for new week
             $week = '';
@@ -106,7 +106,8 @@ function get_celendar($ym){
             <a onclick="set_calender('<?php echo $next; ?>')">Next</a> </p>
 
         </h3>
-
+        <div style="position: relative;">
+            <div id="loadtime"></div>
         <table class="table table-bordered">
             <tr>
                 <th>Sun</th>
@@ -123,12 +124,13 @@ function get_celendar($ym){
                 }
             ?>
         </table>
-
+        
         <form action="{{route('insertTimeSlot')}}" method="post">
             @csrf
             <div id="show_time_slot"></div>
 
         </form>
+        </div>
 
 <?php }
 
@@ -159,12 +161,13 @@ function getYearList($selected = ''){
 <!-- <script src = "jquery.js"></script> -->
         <script>
          function set_calender(date) {
+            document.getElementById('loadtime').style.display = "block";
             $.ajax({
                type:'get',
                url:'{{route("setbooking.calender")}}',
                data:{ym:date},
                success:function(data) {
-                  $("#get_celendar").html(data);
+                $("#get_celendar").html(data);
                }
             });
         }
@@ -183,19 +186,29 @@ function getYearList($selected = ''){
         // only for current date
         @if($ym == date('Y-m'))
             get_timeSlot('{{date("Y-m-d")}}');
+        @else
+            get_timeSlot("{{$ym.'-1'}}");
         @endif
+       
         });
 
         function get_timeSlot(date){
-             $.ajax({
+            document.getElementById('loadtime').style.display = "block";
+            $.ajax({
                type:'get',
                url:'{{route("gettimeslot")}}',
                data:{ym:date},
                success:function(data) {
-                  document.getElementById('show_time_slot').innerHTML = data;
-               }
+                    document.getElementById('loadtime').style.display = "none";
+                    document.getElementById('show_time_slot').innerHTML = data;
+                }
             });
         }
+
+    $('tr td').click(function() {
+        $('td').removeClass('today');
+        $(this).addClass('today');
+    });
 
     </script>
 

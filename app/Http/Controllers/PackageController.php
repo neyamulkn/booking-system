@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Package;
 
 use App\PackagePurchase;
+use App\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,21 +42,13 @@ class PackageController extends Controller
         return back();
     }
 
-
-    public function show(Package $package)
+    // Package list by teacher id
+    public function package()
     {
-        //
-    }
+        $user_id = Auth::user()->id;
+        $get_packages = Package::where('teacherId', $user_id)->where('status', 1)->get();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Package  $package
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Package $package)
-    {
-        //
+        return view('teacher.packages')->with(compact('get_packages'));
     }
 
     public function purchase()
@@ -82,7 +75,10 @@ class PackageController extends Controller
             'paymentTrnx_id' => $payment_id,
         ];
 
-        PackagePurchase::create($data);
+        $success = PackagePurchase::create($data);
+        if($success){
+            User::find(Auth::user()->id)->increment('total_class', $get_package->class);
+        }
         Toastr::success('Payment successfully done');
 
         return Redirect::route('package');

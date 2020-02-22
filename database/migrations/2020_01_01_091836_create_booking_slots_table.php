@@ -15,6 +15,13 @@ class CreateBookingSlotsTable extends Migration
     {
         Schema::create('booking_slots', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('slote_id');
+            $table->integer('slote_date');
+            $table->integer('student_id')->comment('booking student id');
+            $table->date('booking_date');
+            $table->text('cancel_reason')->nullable();
+            $table->integer('cancel_by')->nullable();
+            $table->tinyInteger('booking_status')->default(1)->comment('booked, finish, cancel');
             $table->timestamps();
         });
     }

@@ -141,20 +141,26 @@
           <div class="list-group">
 
             <a href="javascript:;" class="list-group-item"><h3 class="pull-right"><i class="fa fa-clock-o"></i></h3>
-                  <h4 class="list-group-item-heading">15</h4>
-                  <p class="list-group-item-text">Purchas Hours</p>
+                  <h4 class="list-group-item-heading">{{$userIfno->total_class}}</h4>
+                  <p class="list-group-item-text">Purchas Classes</p>
 
                 </a>
 
             <a href="javascript:;" class="list-group-item"><h3 class="pull-right"><i class="fa fa-clock-o"></i></h3>
                   <h4 class="list-group-item-heading">3</h4>
-                  <p class="list-group-item-text">Booked Hours</p>
+                  <p class="list-group-item-text">Booked Classes</p>
+
+                </a>
+
+            <a href="javascript:;" class="list-group-item"><h3 class="pull-right"><i class="fa fa-clock-o"></i></h3>
+                  <h4 class="list-group-item-heading">3</h4>
+                  <p class="list-group-item-text">Finish Classes</p>
 
                 </a>
 
             <a href="javascript:;" class="list-group-item"><h3 class="pull-right"><i class="fa fa-clock-o"></i></h3>
                   <h4 class="list-group-item-heading">5</h4>
-                  <p class="list-group-item-text">Remaining Hours</p>
+                  <p class="list-group-item-text">Remaining Classes</p>
 
                 </a>
           </div> <!-- /.list-group -->

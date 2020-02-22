@@ -14,6 +14,20 @@
         .class-record tr th{
             padding:10px 3px !important;
         }
+
+            
+      #loadtime{
+        background: url("{{asset('images/loader.gif')}}");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #00000005;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;   
+    }
     </style>
     @include('student.menubar')
     <div class="container">
@@ -28,7 +42,7 @@
                             <div class="portlet-header">
                                 <ul id="myTab1" class="nav nav-pills">
                                     <li class="active">
-                                        <a href="#Calender"  data-toggle="tab">Booking Calender</a>
+                                        <a href="#getBookingList"  data-toggle="tab">Booking Calender</a>
                                     </li>
                                     <li>
                                         <a href="#Schedule"  data-toggle="tab"> Teaching Schedule</a>
@@ -42,7 +56,7 @@
                             </div>
                             <div class="portlet-content">
                                 <div id="myTab1Content" class="tab-content">
-                                    <div class="tab-pane fade in active" id="Calender">
+                                    <div class="tab-pane fade in active" id="getBookingList">
 
                                         <div class="pull-left">
                                             <h4>
@@ -56,82 +70,9 @@
                                         <div class="clear"></div>
                                         <hr/>
                                         <div class="panel-thread">
-
                                             <ul class="panel-lists">
-
-                                                <li>
-                                                    <img src="{{asset('images')}}/avatars/avatar-1-md.jpg" alt="Avatar" class="panel-list-avatar">
-                                                    <div class="panel-list-content">
-                                                        <span class="panel-list-time">20 mins</span>
-                                                        <a href="#" class="panel-list-title">Proin malesuada consectetur lectus. Ut vel lorem sed metus vulputate bibendum.</a>
-                                                        <span class="panel-list-meta">asked by <a href="#">John Doe</a> in <a href="#">Admin Themes</a></span>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <img src="{{asset('images')}}/avatars/avatar-2-md.jpg" alt="Avatar" class="panel-list-avatar">
-                                                    <div class="panel-list-content">
-                                                        <span class="panel-list-time">20 mins</span>
-                                                        <a href="#" class="panel-list-title">Nunc egestas, sapien vel feugiat varius, ligula urna mattis odio, ut mollis urna nunc id risus. Mauris congue bibendum turpis</a>
-                                                        <span class="panel-list-meta">asked by <a href="#">Jane Doe</a> in <a href="#">Site Templates</a></span>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <img src="{{asset('images')}}/avatars/avatar-1-md.jpg" alt="Avatar" class="panel-list-avatar">
-                                                    <div class="panel-list-content">
-                                                        <span class="panel-list-time">20 mins</span>
-                                                        <a href="#" class="panel-list-title">Proin malesuada consectetur lectus. Ut vel lorem sed metus vulputate bibendum.</a>
-                                                        <span class="panel-list-meta">asked by <a href="#">John Doe</a> in <a href="#">Admin Themes</a></span>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <img src="{{asset('images')}}/avatars/avatar-2-md.jpg" alt="Avatar" class="panel-list-avatar">
-                                                    <div class="panel-list-content">
-                                                        <span class="panel-list-time">20 mins</span>
-                                                        <a href="#" class="panel-list-title">Nunc egestas, sapien vel feugiat varius, ligula urna mattis odio, ut mollis urna nunc id risus. Mauris congue bibendum turpis</a>
-                                                        <span class="panel-list-meta">asked by <a href="#">Jane Doe</a> in <a href="#">Site Templates</a></span>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <img src="{{asset('images')}}/avatars/avatar-1-md.jpg" alt="Avatar" class="panel-list-avatar">
-                                                    <div class="panel-list-content">
-                                                        <span class="panel-list-time">20 mins</span>
-                                                        <a href="#" class="panel-list-title">Proin malesuada consectetur lectus. Ut vel lorem sed metus vulputate bibendum.</a>
-                                                        <span class="panel-list-meta">asked by <a href="#">John Doe</a> in <a href="#">Admin Themes</a></span>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <img src="{{asset('images')}}/avatars/avatar-2-md.jpg" alt="Avatar" class="panel-list-avatar">
-                                                    <div class="panel-list-content">
-                                                        <span class="panel-list-time">20 mins</span>
-                                                        <a href="#" class="panel-list-title">Nunc egestas, sapien vel feugiat varius, ligula urna mattis odio, ut mollis urna nunc id risus. Mauris congue bibendum turpis</a>
-                                                        <span class="panel-list-meta">asked by <a href="#">Jane Doe</a> in <a href="#">Site Templates</a></span>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <img src="{{asset('images')}}/avatars/avatar-1-md.jpg" alt="Avatar" class="panel-list-avatar">
-                                                    <div class="panel-list-content">
-                                                        <span class="panel-list-time">20 mins</span>
-                                                        <a href="#" class="panel-list-title">Proin malesuada consectetur lectus. Ut vel lorem sed metus vulputate bibendum.</a>
-                                                        <span class="panel-list-meta">asked by <a href="#">John Doe</a> in <a href="#">Admin Themes</a></span>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <img src="{{asset('images')}}/avatars/avatar-2-md.jpg" alt="Avatar" class="panel-list-avatar">
-                                                    <div class="panel-list-content">
-                                                        <span class="panel-list-time">20 mins</span>
-                                                        <a href="#" class="panel-list-title">Nunc egestas, sapien vel feugiat varius, ligula urna mattis odio, ut mollis urna nunc id risus. Mauris congue bibendum turpis</a>
-                                                        <span class="panel-list-meta">asked by <a href="#">Jane Doe</a> in <a href="#">Site Templates</a></span>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
+                                                <!--  -->
+                                              </ul>
                                         </div> <!-- /.portlet-content -->
 
                                     </div>
@@ -270,7 +211,7 @@
                             <div class="portlet-content">
 
                                 <div class="sitebar">
-                                    @include('both.calender-sitebar')
+                                    @include('common.calender-sitebar')
 
                                 </div>
 
@@ -447,6 +388,12 @@
         $(document).ready(function(){
             get_timeSlot('{{ (Session::get("slotDate") ) ? Session::get("slotDate") : date("Y-m-d")}}');
         });
+
+
+    $('tr td').click(function() {
+        $('td').removeClass('today');
+        $(this).addClass('today');
+    });
     </script>
 
 

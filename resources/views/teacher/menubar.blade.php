@@ -47,6 +47,13 @@
         </li>
 
         <li class="dropdown ">
+          <a href="{{route('teaching.material')}}" >
+            <i class="fa fa-files-o"></i>
+            Teaching material
+          </a>
+        </li>
+
+        <li class="dropdown ">
           <a href="#contact" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
             <i class="fa fa-external-link"></i>
             Settings

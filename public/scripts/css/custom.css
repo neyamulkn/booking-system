@@ -17,7 +17,7 @@
     font-weight: 500;
     font-size: 12px;
     border: 1px solid #eaeaea;
-    padding: 10px 0px 10px 7px;
+    padding: 12px 0px 12px 7px;
 
 }
 #show_time_slot label:hover{
@@ -37,6 +37,12 @@
 	background: red;
 }
 
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th
+{
+    padding: 12px 8px;
+    vertical-align: middle !important;
+    text-align: center;
+}
 tr td {
     cursor: pointer;
     font-size: 13px;
