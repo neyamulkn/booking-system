@@ -22,11 +22,12 @@
         background: #CC802B;
         color:#fff;
     }
+    #passedDate{cursor: not-allowed;background: #c3c3c34f !important;color: #8e8b8b !important;}
 
 </style>
 <?php
 // Set your timezone
-date_default_timezone_set('Asia/Tokyo');
+// date_default_timezone_set('Asia/Tokyo');
 // Get prev & next month
 if (isset($ym) && !empty($ym)) {
     $ym = $ym;
@@ -77,7 +78,7 @@ function get_celendar($ym){
 
         $date = $ym . '-' . $day;
         $get_avaible_time = App\TimeAvailable::where('slotDate', $date)->first();
-        $week .= '<td onclick="get_timeSlot('."'".$date."'".')" class="'.($today == $date ? "today" : ( ($ym . '-1' == $date) && ($today  <= $ym . '-1')  ? "today " :  "")).($get_avaible_time ? " setDay " : "").'">' .$date;
+        $week .= '<td'. (Carbon\Carbon::parse($date)->format('Y-m-d') >= Carbon\Carbon::parse(date('Y-m-d'))->format('Y-m-d') ? ' onclick="get_timeSlot('."'".$date."'".')" ' : ' id="passedDate" title="This Date Passed." ' ) . ' class="'.($today == $date ? "today" : ( ($ym . '-1' == $date) && ($today  <= $ym . '-1')  ? "today " :  "")).($get_avaible_time ? " setDay " : "").'">' .$date;
 
         $week .= '</td>';
 
@@ -97,7 +98,7 @@ function get_celendar($ym){
            <!--  <select name="month_dropdown" id="month_dropdown"><?php echo getAllMonths($dateMonth); ?></select>
             <select name="year_dropdown" id="year_dropdown"><?php echo getYearList($dateYear); ?></select>  -->
 
-            <p> <i class="fa fa-calendar"></i> Dhaka Time
+            <p> <i class="fa fa-calendar"></i> Beijing Time
             @if($ym > date('Y-m'))
                 <a onclick="set_calender('<?php echo $prev; ?>')">Prev</a>
             @endif

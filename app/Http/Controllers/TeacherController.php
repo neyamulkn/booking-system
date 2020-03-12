@@ -10,16 +10,10 @@ use App\BookingSlot;
 use Illuminate\Support\Facades\Auth;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
-
+use DB;
 class TeacherController extends Controller
 {
-    //get booking list by teacher id & date 
-    public function bookingList()
-    {
-        $booking_lists = BookingSlot::with('user')->where('student_id', '!=' , 0)->where('slote_date', date('Y-m-d'))->get();
-       
-        return view('teacher.booking-list')->with(compact('booking_lists'));
-    }
+    
     // Booking calender 
     public function timeSlotCalender()
     {
@@ -27,7 +21,11 @@ class TeacherController extends Controller
     }
     // get all student list
     public function students(){
-        $students = User::where('user_roleID', 3)->get();
+        $students = BookingSlot::select('*', 
+            DB::raw('sum(booking_status = 1) as booked_class'),
+            DB::raw('sum(booking_status = 2) as finish_class') 
+        )->groupBy('student_id')->get();
+
         return view('teacher.students')->with(compact('students'));
     }
 

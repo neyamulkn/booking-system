@@ -173,7 +173,7 @@ function getYearList_sitebar($selected = ''){
 
              $.ajax({
                type:'get',
-               url:'{{route("booking_list")}}',
+               url:'{{route("bookingList")}}',
                data:{ym_sitebar:date},
                success:function(data) {
                   document.getElementById('getBookingList').innerHTML = data;

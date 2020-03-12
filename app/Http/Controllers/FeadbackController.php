@@ -15,16 +15,21 @@ class FeadbackController extends Controller
         //
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function feeback(Request $request)
     {
-        dd($request->feeback);
+        //dd($request->rating);
+       
+        foreach ($request->rating as $rating_id => $rating) {
+           $data = [
+                'rating_id' => $rating_id,
+                'rating' => $rating
+           ];
+            var_dump($data);
+        }
+
+       
+
+
     }
 
     /**

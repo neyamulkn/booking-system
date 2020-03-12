@@ -29,7 +29,7 @@ class TeachingMaterialController extends Controller
         $setMaterial_id = ClassMaterial::where('slote_id', $slote_id)->pluck('material_id')->toArray();
 
         $materials = TeachingMaterial::orderBy('id', 'DESC')->get();
-        return view('common.teaching-material')->with(compact('materials', 'setMaterial_id'));
+        return view('teaching-material')->with(compact('materials', 'setMaterial_id'));
     }
 
 
@@ -134,8 +134,10 @@ class TeachingMaterialController extends Controller
                 $outpur = array('status' => 'error', 'msg' => 'Teaching material didn\'t added');
             }
         }else{
-            ClassMaterial::where('slote_id', $slote_id)->where('material_id', $request->material_id)->where('added_by', $user_id)->delete();
-            $outpur = array('status' => 'success', 'msg' => 'Teaching material remove successfully');
+            $remove = ClassMaterial::where('slote_id', $slote_id)->where('material_id', $request->material_id)->where('added_by', $user_id)->delete();
+            if($remove){
+                $outpur = array('status' => 'success', 'msg' => 'Teaching material remove successfully');
+            }
         }
 
         return $outpur;

@@ -22,8 +22,8 @@
 
 </style>
 <?php
-// Set your timezone
-date_default_timezone_set('Asia/Tokyo');
+// // Set your timezone
+// date_default_timezone_set('Asia/Tokyo');
 // Get prev & next month
 if (isset($ym) && !empty($ym)) {
     $ym = $ym;

@@ -19,7 +19,10 @@ class CreatePackagePurchasesTable extends Migration
             $table->integer('studentId');
             $table->integer('teacherId');
             $table->integer('packageId');
-            $table->integer('duration')->nullabe();
+            $table->integer('total_class')->nullable();
+            $table->integer('remaining_class')->nullable();
+            $table->integer('amount');
+            $table->integer('expiry_day')->nullable();
             $table->char('paymentMethod');
             $table->char('paymentTrnx_id', 125);
             $table->timestamps();

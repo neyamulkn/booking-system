@@ -17,10 +17,12 @@ class CreatePackagesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('teacherId');
             $table->char('packageName');
-            $table->integer('class');
-            $table->integer('days');
+            $table->integer('class_no')->nullable();
+            $table->integer('validity_day ')->nullable();
             $table->integer('timeSlot')->nullable();
             $table->double('amount')->nullable();
+            $table->double('type')->default(1)->comment('regular=1,custom=2');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

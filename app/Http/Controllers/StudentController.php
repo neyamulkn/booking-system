@@ -18,6 +18,8 @@ class StudentController extends Controller
     {
         return view('student.booking');
     }
+
+    // get booking calender by date 
     public function bookingCalender(Request $request){
         $ym = $request->ym;
         echo view('student.calender')->with(compact('ym'));
@@ -28,7 +30,7 @@ class StudentController extends Controller
         $user_id = Auth::user()->id;
         $get_packages = Package::where('status', 1)->get();
 
-        return view('student.packages')->with(compact('get_packages'));
+        return view('packages')->with(compact('get_packages'));
     }
     
 

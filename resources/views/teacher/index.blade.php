@@ -6,7 +6,7 @@
 </style>
 
 @section('content')
-@include('teacher.menubar')
+
 <div class="container">
 
   <div class="content">

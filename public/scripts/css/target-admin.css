@@ -77,7 +77,6 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  font-family: Oswald;
   font-weight: 400;
 }
 /* ==Buttons */
@@ -1159,7 +1158,8 @@ input[type="checkbox"] {
 }
 .content-header {
   padding-bottom: .5em;
-  border-bottom: 1px dotted #CCC;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #CCC;
 }
 .content-header-title {
   margin-top: 0;
@@ -1244,7 +1244,7 @@ input[type="checkbox"] {
 @media (min-width: 768px) {
   .navbar .noticebar > li > a {
     max-height: 60px;
-    color: #3c3c3c;
+    color: #fff;
     font-size: 19px;
   }
   .navbar .noticebar > li > a:hover {
@@ -1929,7 +1929,7 @@ input[type="checkbox"] {
   margin-bottom: 2em;
 }
 .pricing-plan-header {
-  padding: 30px 20px;
+  padding: 5px;
   color: #fff;
   text-align: center;
   background: #e74c3c;
@@ -1940,15 +1940,14 @@ input[type="checkbox"] {
 }
 .pricing-plan-title {
   margin-bottom: 0px;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
-  text-transform: uppercase;
   letter-spacing: 1px;
 }
 .pricing-plan-price {
   display: block;
   margin-bottom: 5px;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 600;
 }
 .pricing-plan-price-term {
@@ -1957,7 +1956,7 @@ input[type="checkbox"] {
   font-size: 16px;
 }
 .pricing-plan-body {
-  padding: 30px 20px;
+  padding: 10px;
   text-align: left;
   border: 1px solid #ccc;
   border-top: none;
@@ -1973,13 +1972,14 @@ ul.pricing-plan-details li {
   margin: 0 0 .825em;
   list-style: none;
   color: #555;
-  font-size: 16px;
+  font-size: 14px;
   border-bottom: 1px dotted #ccc;
 }
 ul.pricing-plan-details li:last-child {
   padding-bottom: 0;
   margin-bottom: 0;
   border-bottom: none;
+  text-align: center;
 }
 .pricing-plan-detail-icon {
   width: 1em;
@@ -2003,6 +2003,7 @@ ul.pricing-plan-details li:last-child {
 }
 .pricing-plan-secondary .pricing-plan-signup-btn {
   background: #428bca;
+  font-weight: bold;
 }
 .pricing-plan-secondary .pricing-plan-signup-btn:hover {
   background: #2a6496;

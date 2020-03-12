@@ -5,17 +5,15 @@
   }
 </style>
 @section('content')
-@include('teacher.menubar')
+
   <div class="container">
 
   <div class="content">
 
     <div class="content-container">
 
-
-
       <div class="content-header">
-        <h2 class="content-header-title">Students List</h2>
+        <h2 class="content-header-title">Client List</h2>
 
       </div> <!-- /.content-header -->
 
@@ -46,12 +44,12 @@
                         <th class="checkbox-column">
                           <input type="checkbox" class="icheck-input">
                         </th>
-                        <th data-filterable="false" data-sortable="true" data-direction="desc">Student Name</th>
-                        <th data-direction="asc" data-filterable="false" data-sortable="true">Start Date</th>
-                        <th data-filterable="false" data-sortable="true">Purchased Hours</th>
-                        <th data-filterable="false" class="hidden-xs hidden-sm">Booked Hours</th>
-                        <th data-filterable="false" class="hidden-xs hidden-sm">Remaining Hours</th>
-                        <th data-filterable="false" class="hidden-xs hidden-sm">Attendance</th>
+                        <th data-filterable="false" data-sortable="true" data-direction="desc">Client Name</th>
+                        <th data-direction="asc" data-filterable="false" data-sortable="true">Sign Up Date</th>
+                        <th data-filterable="false" data-sortable="true">First Booking Date</th>
+                        <th data-filterable="false" class="hidden-xs hidden-sm">Booked Sessions</th>
+                        <th data-filterable="false" class="hidden-xs hidden-sm">Finished Sessions</th>
+                        <th data-filterable="false" class="hidden-xs hidden-sm">Remaining Sessions</th>
                         <th data-filterable="false" class="hidden-xs hidden-sm">Contact</th>
                       </tr>
 
@@ -62,13 +60,14 @@
                       <td class="checkbox-column">
                         <input type="checkbox" class="icheck-input">
                       </td>
-                      <td>{{ $student->name }}</td>
+                      <td>{{ $student->user->name }}</td>
+                      <td>{{Carbon\Carbon::parse($student->created_at)->format('j F, Y')}}
                       <td>{{Carbon\Carbon::parse($student->created_at)->format('j F, Y')}}
                       </td>
-                      <td>Win 95+</td>
-                      <td>Win 95+</td>
-                      <td>Win 95+</td>
-                      <td class="hidden-xs hidden-sm">5</td>
+                     
+                      <td>{{$student->booked_class}}</td>
+                      <td>{{$student->finish_class}}</td>
+                      <td class="hidden-xs hidden-sm">{{$student->user->total_class}}</td>
                       <td class="hidden-xs hidden-sm">
                           <button type="button" onclick="getContact('{{ $student->id}}')" data-toggle="modal" href="#basicModal" class="btn btn-secondary">
                           <i class="fa fa-comment"></i>

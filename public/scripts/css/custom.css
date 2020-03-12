@@ -8,6 +8,7 @@
     background: #16A085 !important;
     color: #fff;
 }
+
 #show_time_slot label {
     cursor: pointer;
     display: inline-block;
@@ -18,14 +19,22 @@
     font-size: 12px;
     border: 1px solid #eaeaea;
     padding: 12px 0px 12px 7px;
-
 }
+
 #show_time_slot label:hover{
     background: #16A085;
     color: #fff;
 }
 
+#sitebar_calender select, #sitebar_calender a{ font-size:12px !important; }
+
 /* ENd calender css*/
+
+.modal-header{
+    background: #109c68;
+    color: #fff;
+    padding: 8px;
+}
 
 .invalid-feedback{
 	font-weight: initial;

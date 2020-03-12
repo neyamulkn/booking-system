@@ -5,8 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
-class User extends Authenticatable implements MustVerifyEmail
+use DB;
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','gender','birthday','country','contact','state', 'city','wechat','qq', 'skype','facebook','username','user_roleID',
+        'name', 'email', 'mobile', 'password','gender','birthday','country','contact','state', 'city','wechat','qq', 'skype','facebook','username','user_roleID',
     ];
 
     /**
@@ -36,4 +36,21 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function getCountry(){
+        return $this->belongsTo(Country::class, 'country');
+    }
+
+    public function totalSession(){
+        return $this->hasMany(PackagePurchase::class, 'studentId');
+    }
+
+    public function bookingSession(){
+       return $this->hasOne(BookingSlot::class, 'student_id')->select('*',
+            DB::raw('sum(booking_status = 1) as booked_class'),
+            DB::raw('sum(booking_status = 2) as finish_class'),
+            DB::raw('sum(booking_status = 2) as cancal_class') 
+        );
+    }
 }

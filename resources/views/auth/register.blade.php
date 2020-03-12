@@ -1,325 +1,383 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-  <title>Register</title>
-
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300,700">
-  <link rel="stylesheet" href="{{asset('scripts/css')}}/font-awesome.min.css">
-
-  <link rel="stylesheet" href="{{asset('scripts/css')}}/bootstrap.min.css">
-
-    <!-- App CSS -->
-  <link rel="stylesheet" href="{{asset('scripts/css')}}/target-admin.css">
-  <link rel="stylesheet" href="{{asset('scripts/css')}}/custom.css">
+        <meta charset="utf-8">
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta name="description" content="Create Account">
+<meta name="keywords" content="">
+<meta name="author" content="Create Account">
+<link rel="shortcut icon" type="image/ico" href="{{ asset('landing/assets') }}/images/favicon.ico"/>
+<link rel="shortcut icon" type="image/ico" href="{{ asset('landing/assets') }}/images/favicon.ico"/>
+<title>Create Account</title>
+<!--Custome Css-->
+<link href="{{ asset('landing/assets') }}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{{ asset('landing/assets') }}/css/validationEngine.jquery.min.css" />
+<link rel="stylesheet" href="{{ asset('landing/assets') }}/css/jquery-confirm.min.css" />
+<link rel="stylesheet" href="{{ asset('landing/assets') }}/css/custom.css" />
   <link href="{{asset('scripts/css')}}/floating-label.css" rel="stylesheet">
 
-</head>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-<body class="account-bg">
 
-<div class="navbar">
 
-  <div class="container">
 
-    <div class="navbar-header">
+    </head>
 
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <i class="fa fa-cogs"></i>
-      </button>
+    <body>
 
-      <a class="navbar-brand navbar-brand-image" href="{{url('/')}}" style="padding-top: 8px">
-        Teacher Jack
-      </a>
+        <!-- header -->
+ <style>
+.navbar-wrapper .navbar .navbar-collapse .topNav li .loginDiv .loginWhite::before{background: none!important}
+#dd-lang
+{
 
-    </div> <!-- /.navbar-header -->
+    background: none;
+    padding: 4px 0px;
+    color: white;
+    border: none;
+    font-size: 14px;
 
-    <div class="navbar-collapse collapse">
+}
+input.phoneNumber {
+    padding: 0 15px 0 65px !important;
+}
+#dd-lang option{
+    color: black;
+}
 
-      <ul class="nav navbar-nav navbar-right">   
 
-        <li>
-          <a href="javascript:;">
-            <i class="fa fa-angle-double-left"></i> 
-            &nbsp;Back to Homepage
-          </a>
-        </li> 
+    .dd-lang a:hover{
+        cursor: pointer;
+    }
+    .dd-lang{
+        position: absolute;top: 0;margin-top: 10px !important;right: 26px;
+    }
+    .dd-lang li.selected a{opacity: 1;color: #fff !important;}
+    .dd-lang li a img{    margin: 2px 1px 6px 0px;}
+    .navbar-wrapper .navbar .navbar-collapse .nav {margin: 54px 0 0;}
+    .navbar-wrapper .navbar .navbar-collapse .topNav {margin: 40px 0 0 19px;}
+    @media screen and (max-width: 990px){
+        .dd-lang{
+            position: relative;left: 0;
+        }
+        .navbar-wrapper .navbar .navbar-collapse .nav {margin: 15px 0 0;}
+        .navbar-wrapper .navbar .navbar-collapse .topNav {margin: 15px 0 0 19px;}
+    }
 
-      </ul>
-       
+</style>
+<div class="navbar-wrapper innerHeader">
+    <div class="container-fluid">
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{url('/')}}">
+                    <img src="{{ asset('landing/assets') }}/images/logo.png" width="35%" alt="">
+                </a>
+                <button type="button" class="navbar-toggle slide-menu-open">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <a href="javascript:void(0);" class="menu-close"></a>
 
-    </div> <!--/.navbar-collapse -->
+                <ul class="nav navbar-nav">
 
-  </div> <!-- /.container -->
+                    <li class=""><a href="{{url('/')}}">Home</a></li>
+                    <li class=""><a href="{{route('features')}}">Features</a></li>
+                    <li class=""><a href="{{route('reviews')}}">Reviews</a></li>
+                    <li class=""><a href="{{route('pricing')}}">Pricing</a></li>
 
-</div> <!-- /.navbar -->
+                </ul>
+                <ul class="topNav" style="margin: 25px 0 0 19px !important">
+                    <li>
+                        <a href="Javascript:void(0);" class="login">Login</a>
+                        <div class="loginDiv" style="top: 55px !important; right: 0; left: initial !important;">
+                            <div class="loginWhite" style="background: #fbfbfb !important;border: 1px solid #ccc;">
+                                <div class="alert alert-danger" id="lerr_container" style="display:none"> </div>
+                                <div class="alert alert-success" id="lsucc_container" style="display:none"></div>
+                                <ul>
 
-<div class="account-wrapper" style="width: 50% !important">
+                                    <form id="form_signin" action="{{route('login')}}" method="post">
+                                        @csrf
+                                        <li><input type="text" name="email" placeholder="Email Address" id="email" class="hs validate[required,custom[email]]"></li>
+                                        <li><input type="password" name="password" placeholder="Password" id="password" class="hs validate[required]"></li>
+                                        <li>
+                                            <input type="submit" value="Login" class="btn-info" id="btn_log">
+                                            <img id="log" src="{{ asset('landing/assets') }}/images/loader.html" alt="" style=" display: none; float: left;"/>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="remember" id="remember" value="">
+                                            <span class="remember">Remember Me</span>
+                                            <a href="#" class="forgotPassword">Forgot your password?</a>
+                                        </li>
+                                    </form>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
 
-    <div class="account-body">
+                </ul>
 
-      <h3 class="account-body-title">Get Started with a Free Account.</h3>
 
-      <h5 class="account-body-subtitle">Please signup to get access.</h5>
 
-      <form class="form account-form floating-labels" method="POST" action="{{ route('register') }}">
-      <div class="row">
-        @csrf
-        <div class="col-md-6">
-          <div class="form-group">
-              <label for="fname" >First Name</label>
-             <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname" autofocus>
+            </div>
+        </nav>
+    </div>
+</div>        <!-- /.header -->
+        <div class="body">
+            <div class="register">
+                <h1>Reliable Online Booking System</h1>
+                <p>If you already have an account, please click <a href="Javascript:void(0);" class="login">Log in</a></p>
+                <h4 style="margin-bottom: 10px;">Please sign up to get access.</h4>
 
-              @error('fname')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-          </div> 
-        </div> 
+                <div class="alert alert-danger" id="err_container" style="display:none;">
+                                     </div>
+                <div class="alert alert-success" id="succ_container" style="display:none;">
+                                     </div>
+                <form action="{{route('register')}}" method="post" id="form_signup"  autocomplete="off">
+                    @csrf
+                    <ul>
+                        <li>
+                          <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" placeholder="First Name" required autocomplete="fname" autofocus>
 
-        <div class="col-md-6">
-          <div class="form-group">
-              <label for="lname" >Last Name</label>
-             <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
+                          @error('fname')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
 
-              @error('lname')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-          </div> <!-- /.form-group -->
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-          <label for="email" >Email Address</label>
-           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-          </div> <!-- /.form-group -->
-        </div>
+                        </li>
+                        <li>
+                            <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" placeholder="Last Name" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
 
-        <div class="col-md-6">
-          <div class="form-group">
-          <label for="mobile" >Mobile Number</label>
-           <input id="mobile" type="mobile" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile">
-            @error('mobile')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-          </div> <!-- /.form-group -->
-        </div>
+                            @error('lname')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </li>
+                        <li>
+                          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email Address" required autocomplete="email">
+                          @error('email')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
+                        </li>
 
-        <div class="col-md-6">
-            <div class="form-group">
-              <label for="gender" >Gender</label>
-               <select name="gender" id="gender" required="required" class="form-control @error('gender') is-invalid @enderror">
-                 <option value=""></option>
-                 <option value="1">Male</option>
-                 <option value="2">Female</option>
-               </select>
+                        <li>
+                          <select name="gender" id="gender" required="required" class="form-control @error('gender') is-invalid @enderror">
+                             <option value="">Select Gender</option>
+                             <option @if( old('gender') == 1) selected @endif value="1">Male</option>
+                             <option @if( old('gender') == 2) selected @endif value="2">Female</option>
+                           </select>
 
-                @error('gender')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
+                            @error('gender')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
+                        </li>
+
+                        <li>
+                            <input id="birthday" placeholder="Birthday" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control @error('birthday') is-invalid @enderror" name="birthday"  value="{{ old('birthday') }}" value="fasdkf" required autocomplete="birthday" autofocus>
+
+                            @error('birthday')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </li>
+
+                        <li>
+
+                            <?php $get_countries = DB::table('countries')->get(); ?>
+                            <select name="country" onchange="get_state(this.value)" id="country" class="form-control validate[required]">
+                                <option value="0" data-phonecode="+1">Select Country</option>
+                                @foreach($get_countries as $country)
+                                <option @if( old('country') == $country->id) selected @endif value="{{$country->id}}" data-phonecode="{{$country->phonecode}}" >{{$country->name}}</option>
+                                @endforeach
+
+                            </select>
+                        </li>
+                        <!--
+                        <li>
+                            <select name="state" id="state"  onchange="get_city(this.value)" required="required" class="form-control @error('state') is-invalid @enderror">
+                               <option value="">Select State</option>
+                             </select>
+
+                              @error('state')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
+
+                        </li>
+                        <li>
+                            <select name="city" id="city" class="form-control @error('city') is-invalid @enderror">
+                               <option value="">Select City</option>
+                             </select>
+
+                            @error('city')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
+
+                        </li> -->
+
+                        <li><span class="phonecode" id="phonecode">+1</span>
+                            <input type="hidden" id="hid_phonecode" name="hid_phonecode" value="+1"/>
+                         <input id="businessphone" type="tel" class="form-control phoneNumber @error('mobile') is-invalid @enderror " name="mobile" value="{{ old('mobile') }}" placeholder="Mobile Number" required autocomplete="mobile">
+                              @error('mobile')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                             @enderror
+                        </li>
+                       <!--  <li>
+                            <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" placeholder="Contact No" required autocomplete="contact" autofocus>
+
+                              @error('contact')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
+                        </li> -->
+                        <li>
+                            <input type="text"  value="{{old('wechat') }}" placeholder="Wechat ID (optional)"  name="wechat" class="form-control" id="wechat" tabindex="3">
+                        </li>
+
+                        <li>
+                            <input type="text" value="{{old('qq')}}" placeholder="QQ ID (optional)" name="qq" class="form-control" id="QQ" tabindex="3">
+                        </li>
+                        <li><input type="text" value="{{old('skype')}}" placeholder="Skype ID (optional)" name="skype" class="form-control" id="skype" tabindex="3">
+                        </li>
+                        <li> <input type="text" value="{{old('facebook')}}" placeholder="Facebook profile link (optional)" name="facebook" class="form-control" id="facebook" tabindex="3"></li>
+                        <li>
+                            <input type="text" value="{{old('username') }}" name="username" required="required" placeholder="Username " class="form-control" id="username" tabindex="3">
+                            @error('username')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
+                        </li>
+                        <li>
+                            <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </li>
+
+                        <li>
+                            <input id="password-confirm" placeholder="Retype password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                        </li>
+
+                        <li style="width: 100%">
+                            <select name="role" id="role"  required="required" class="form-control @error('role') is-invalid @enderror">
+                               <option value="">Select Profession</option>
+                               <option value="{{env('TEACHER')}}">Business</option>
+                               <option value="{{env('TEACHER')}}">Beauty</option>
+                               <option value="{{env('TEACHER')}}">Education</option>
+                               <option value="{{env('TEACHER')}}">Events</option>
+                               <option value="{{env('TEACHER')}}">Entertainment</option>
+
+                               <option value="{{env('TEACHER')}}">Medical</option>
+                               <option value="{{env('TEACHER')}}">Official</option>
+                              <option value="{{env('TEACHER')}}">Personal meetings</option>
+                               <option value="{{env('STUDENT')}}">Student</option>
+                               <option value="{{env('TEACHER')}}">Sales</option>
+                               <option value="{{env('TEACHER')}}">Sports</option>
+                               <option value="{{env('TEACHER')}}">Teaching</option>
+                               <option value="{{env('TEACHER')}}">Tourism</option>
+                               <option value="{{env('TEACHER')}}">Transportation</option>
+                              <option value="{{env('TEACHER')}}">Wellness</option>
+                              <option value="{{env('OTHERS')}}">Others</option>
+                             </select>
+
+                              @error('role')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
+
+                        </li>
+
+
+                        <li class="fullWidth text-center">
+                            <input type="submit" name="signup" id="signup" value="Sign Up">
+                            <img id="slog" src="{{ asset('landing/assets') }}/images/loader.html" alt="" style=" display: none; float: left;"/>
+                        </li>
+                    </ul>
+                </form>
             </div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-              <label for="birthday" >Birthday date</label>
-             <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday"  value="{{ old('birthday') }}" value="fasdkf" required autocomplete="birthday" autofocus>
+        <!--Signup end-->
 
-              @error('birthday')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-          </div> 
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-              <label for="country" >Country</label>
-               <select name="country" required="required" id="country" class="form-control @error('country') is-invalid @enderror">
-                 <option value=""></option>
-                 <option value="1">Bangladesh</option>
-                 <option value="2">India</option>
-               </select>
 
-                @error('country')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-              </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="state" >State</label>
-             <select name="state" id="state" required="required" class="form-control @error('state') is-invalid @enderror">
-               <option value=""></option>
-               <option value="1">Dhaka</option>
-               <option value="2">Rangpur</option>
-             </select>
+@include('landing.layouts.footer')
+ <script src = "{{asset('scripts/js')}}/libs/jquery-3.2.1.min.js"></script>
 
-              @error('state')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-          </div>
-        </div>
 
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="city" >City</label>
-             <select name="city" id="city" class="form-control @error('city') is-invalid @enderror">
-               <option value=""></option>
-               <option value="1">Dhaka</option>
-               <option value="2">Rangpur</option>
-             </select>
+<script>
 
-              @error('city')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-          </div>
-          </div>
-        
-        <div class="col-md-6">
-          <div class="form-group">
-              <label for="contact" >Contact No</label>
-             <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact" autofocus>
+  @if(old('country'))
+   var countrycode = $('#country').find(':selected').data("phonecode");
+    document.getElementById('phonecode').innerHTML = countrycode;
+  @endif
 
-              @error('contact')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-          </div> 
-        </div>
-        
+    function get_state(id=0){
+        var countrycode = $('#country').find(':selected').data("phonecode");
+        document.getElementById('phonecode').innerHTML = countrycode;
+        var  url = '{{route("get_state", ":id")}}';
+        url = url.replace(':id',id);
+        $.ajax({
+            url:url,
+            method:"get",
+            success:function(data){
+                if(data){
+                    $("#state").html(data);
+                    $("#state").focus();
+                    document.getElementById('city').innerHTML = "<option>Select First State</option>";
+                }else{
+                    document.getElementById('state').innerHTML = "<option>Select First Country</option>";
+                    document.getElementById('city').innerHTML = "<option>Select First State</option>";
+                }
+            }
+        });
+    }
 
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="wechat" >Wechat ID (optional)</label>
-            <input type="text" name="wechat" class="form-control" id="wechat" tabindex="3">
-          </div> <!-- /.form-group -->
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="QQ" >QQ ID (optional)</label>
-            <input type="text" name="qq" class="form-control" id="QQ" tabindex="3">
-          </div> <!-- /.form-group -->
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="skype" >Skype ID (optional)</label>
-            <input type="text" name="skype" class="form-control" id="skype" tabindex="3">
-          </div> <!-- /.form-group -->
-        </div>
+    function get_city(id=0){
+        var  url = '{{route("get_city", ":id")}}';
+        url = url.replace(':id',id);
 
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="facebook">Facebook profile link (optional)</label>
-            <input type="text" name="facebook" class="form-control" id="facebook" tabindex="3">
-          </div> <!-- /.form-group -->
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-            <label for="username" >Username</label>
-            <input type="text" value="{{old('username') }}" name="username" required="required" class="form-control" id="username" tabindex="3">
-            @error('username')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-          </div> <!-- /.form-group -->
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="password" >Password</label>
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+        $.ajax({
+            url:url,
+            method:"get",
+            success:function(data){
+                if(data){
+                    $("#city").html(data);
+                     $("#city").focus();
+                }else{
+                    $("#city").html('<option>Select First State</option>');
+                }
+            }
+        });
+    }
 
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="password-confirm">Confirm Password</label>
-           
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-            @error('password_confirmation')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-          </div> <!-- /.form-group -->
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-            <span class="checkbox-inline">
-            <input type="checkbox" class="" value="" tabindex="5"> I agree to the <a href="javascript:;" target="_blank">Terms of Service</a> &amp; <a href="javascript:;" target="_blank">Privacy Policy</a>
-            </span>
-          </div> <!-- /.form-group -->
-          </div>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-secondary btn-block btn-lg" tabindex="6">
-          Create My Account &nbsp; <i class="fa fa-play-circle"></i>
-          </button>
-        </div> <!-- /.form-group -->
-
-      </form>
-
-    </div> <!-- /.account-body -->
-
-    <div class="account-footer">
-      <p>
-      Already have an account? &nbsp;
-      <a href="{{route('login')}}" class="">Login to your Account!</a>
-      </p>
-    </div> <!-- /.account-footer -->
-
-  </div> <!-- /.account-wrapper -->
-
-  <script src="{{asset('scripts/js')}}/libs/jquery-3.2.1.min.js"></script>
-  <script src="{{asset('scripts/js')}}/libs/jquery-ui-1.9.2.custom.min.js"></script>
-  <script src="{{asset('scripts/js')}}/libs/bootstrap.min.js"></script>
-
-  <!--[if lt IE 9]>
-  <script src="./{{asset('scripts/js')}}/libs/excanvas.compiled.js"></script>
-  <![endif]-->
-  <!-- App JS -->
-  <script src="{{asset('scripts/js')}}/target-admin.js"></script>
-
-  <!-- Plugin JS -->
-  <script src="{{asset('scripts/js')}}/target-account.js"></script>
-
- <!-- for label -->
-  <script type="text/javascript">
-    $(".floating-labels .form-control").on("focus blur",function(e){$(this).parents(".form-group").toggleClass("focused","focus"===e.type||0<this.value.length)}).trigger("blur")
-  </script>
-<!--end label -->
-
+</script>
 </body>
 
 </html>

@@ -8,8 +8,8 @@ class TimeAvailable extends Model
 {
     protected $guarded = [];
 
-    public function user(){
-    	return $this->belongsTo(User::class, 'booking_id');
+    public function teacher(){
+    	return $this->belongsTo(User::class, 'teacher_id');
     }
     public function bookingSlot(){
        return $this->hasOne(BookingSlot::class, 'slote_id');

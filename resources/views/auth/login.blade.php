@@ -1,157 +1,151 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-  <title>Login</title>
-
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300,700">
-  <link rel="stylesheet" href="{{asset('scripts/css')}}/font-awesome.min.css">
-  <link rel="stylesheet" href="{{asset('scripts/js')}}/libs/{{asset('scripts/css')}}/ui-lightness/jquery-ui-1.9.2.custom.min.css">
-  <link rel="stylesheet" href="{{asset('scripts/css')}}/bootstrap.min.css">
-
-    <!-- App CSS -->
-  <link rel="stylesheet" href="{{asset('scripts/css')}}/target-admin.css">
-  <link rel="stylesheet" href="{{asset('scripts/css')}}/custom.css">
+<meta charset="utf-8">
+<meta http-equiv="Pragma" content="no-cache" /> 
+<meta http-equiv="Expires" content="-1" /> 
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta name="description" content="Create Account">
+<meta name="keywords" content="">
+<meta name="author" content="Create Account">
+<link rel="shortcut icon" type="image/ico" href="{{ asset('landing/assets') }}/images/favicon.ico"/>
+<link rel="shortcut icon" type="image/ico" href="{{ asset('landing/assets') }}/images/favicon.ico"/>
+<title>Login Pannel</title>
+<!--Custome Css-->
+<link href="{{ asset('landing/assets') }}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{{ asset('landing/assets') }}/css/validationEngine.jquery.min.css" />
+<link rel="stylesheet" href="{{ asset('landing/assets') }}/css/jquery-confirm.min.css" />  
+<link rel="stylesheet" href="{{ asset('landing/assets') }}/css/custom.css" /> 
   <link href="{{asset('scripts/css')}}/floating-label.css" rel="stylesheet">
 
-</head>
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]-->
-</head>
-
-<body class="account-bg">
-
-<div class="navbar">
-
-  <div class="container">
-
-    <div class="navbar-header">
-
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <i class="fa fa-cogs"></i>
-      </button>
-
-      <a class="navbar-brand navbar-brand-image" href="{{url('/')}}" style="padding-top: 8px">
-        Teacher Jack
-      </a>
-
-    </div> <!-- /.navbar-header -->
-
-    <div class="navbar-collapse collapse">
-
-      <ul class="nav navbar-nav navbar-right">   
-
-        <li>
-          <a href="javascript:;">
-            <i class="fa fa-angle-double-left"></i> 
-            &nbsp;Back to Homepage
-          </a>
-        </li> 
-
-      </ul>
-       
-
-    </div> <!--/.navbar-collapse -->
-
-  </div> <!-- /.container -->
-
-</div> <!-- /.navbar -->
-
-<hr class="account-header-divider">
-
-<div class="account-wrapper">
-
-    <div class="account-body">
-
-      <h3 class="account-body-title">Welcome back to Teacher Jack.</h3>
-
-      <h5 class="account-body-subtitle">Please sign in to get access.</h5>
-
-      <form class="form account-form" method="POST" action="{{route('login')}}">
-        @csrf
-        <div class="form-group">
-          <label for="login-username" class="placeholder-hidden">Email</label>
-          <input type="text" name="email" class="form-control" id="login-username" placeholder="Email" tabindex="1">
-          @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div> <!-- /.form-group -->
-
-        <div class="form-group">
-          <label for="login-password" class="placeholder-hidden">Password</label>
-          <input type="password" name="password" class="form-control" id="login-password" placeholder="Password" tabindex="2">
-          @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div> <!-- /.form-group -->
-
-        <div class="form-group clearfix">
-          <div class="pull-left">         
-            <label class="checkbox-inline">
-            <input type="checkbox" class="" value="" tabindex="3">Remember me
-            </label>
-          </div>
-
-          <div class="pull-right">
-            <a href="account-forgot.html">Forgot Password?</a>
-          </div>
-        </div> <!-- /.form-group -->
-
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="4">
-            Signin &nbsp; <i class="fa fa-play-circle"></i>
-          </button>
-        </div> <!-- /.form-group -->
-
-      </form>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 
-    </div> <!-- /.account-body -->
+  
 
-    <div class="account-footer">
-      <p>
-      Don't have an account? &nbsp;
-      <a href="{{route('register')}}" class="">Create an Account!</a>
-      </p>
-    </div> <!-- /.account-footer -->
+    </head>
 
-  </div> <!-- /.account-wrapper -->
+    <body>
 
-  <script src="{{asset('scripts/js')}}/libs/jquery-1.10.1.min.js"></script>
-  <script src="{{asset('scripts/js')}}/libs/jquery-ui-1.9.2.custom.min.js"></script>
-  <script src="{{asset('scripts/js')}}/libs/bootstrap.min.js"></script>
+        <!-- header -->
+ <style>
+.navbar-wrapper .navbar .navbar-collapse .topNav li .loginDiv .loginWhite::before{background: none!important}
+#dd-lang
+{
 
-  <!--[if lt IE 9]>
-  <script src="./{{asset('scripts/js')}}/libs/excanvas.compiled.js"></script>
-  <![endif]-->
-  <!-- App JS -->
-  <script src="{{asset('scripts/js')}}/target-admin.js"></script>
+    background: none;
+    padding: 4px 0px;
+    color: white;
+    border: none;
+    font-size: 14px;
 
-  <!-- Plugin JS -->
-  <script src="{{asset('scripts/js')}}/target-account.js"></script>
+}
 
- <!-- for label -->
-  <script type="text/javascript">
-    $(".floating-labels .form-control").on("focus blur",function(e){$(this).parents(".form-group").toggleClass("focused","focus"===e.type||0<this.value.length)}).trigger("blur")
-  </script>
-<!--end label -->
+#form_signin ul li{width: 100%;padding: 0;}
+#dd-lang option{
+    color: black;
+}
 
-</body>
+    .dd-lang a:hover{
+        cursor: pointer;
+    }
+    .dd-lang{
+        position: absolute;top: 0;margin-top: 10px !important;right: 26px;
+    }
+    .dd-lang li.selected a{opacity: 1;color: #fff !important;}
+    .dd-lang li a img{    margin: 2px 1px 6px 0px;}
+    .navbar-wrapper .navbar .navbar-collapse .nav {margin: 54px 0 0;}
+    .navbar-wrapper .navbar .navbar-collapse .topNav {margin: 40px 0 0 19px;}
+    @media screen and (max-width: 990px){
+        .dd-lang{
+            position: relative;left: 0;
+        }
+        .navbar-wrapper .navbar .navbar-collapse .nav {margin: 15px 0 0;}
+        .navbar-wrapper .navbar .navbar-collapse .topNav {margin: 15px 0 0 19px;}
+    }
+
+</style>
+<div class="navbar-wrapper innerHeader">
+    <div class="container-fluid">
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-header"> 
+                <a class="navbar-brand" href="{{url('/')}}">
+                    <img src="{{ asset('landing/assets') }}/images/logo.png" width="35%" alt="">
+                </a> 
+                <button type="button" class="navbar-toggle slide-menu-open"> 
+                    <span class="sr-only">Toggle navigation</span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <a href="javascript:void(0);" class="menu-close"></a>
+
+
+            
+
+                <ul class="nav navbar-nav">
+
+                    <li class=""><a href="{{url('/')}}">Home</a></li>
+                    <li class=""><a href="{{route('features')}}">Features</a></li>
+                    <li class=""><a href="{{route('reviews')}}">Reviews</a></li>
+                    <li class=""><a href="{{route('pricing')}}">Pricing</a></li>
+                    <li class=""><a href="{{route('register')}}">Sign Up</a></li>
+
+                </ul>
+              
+
+            </div>
+        </nav>
+    </div>
+</div>        <!-- /.header -->
+        <div class="body">
+            <div class="register">
+                <h1>Fast and reliable online scheduling software</h1>
+                <h4 style="margin-bottom: 10px;">Please login to get access..</h4>
+                
+               
+                <form id="form_signin" action="{{route('login')}}" method="post">
+                  @csrf
+                  <ul>
+                  <li><input type="text" name="email" placeholder="Email Address" id="email" class="hs validate[required,custom[email]]">
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </li>
+
+                  <li><input type="password" name="password" placeholder="Password" id="password" class="hs validate[required]">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </li>
+                  <li>
+                      <input type="submit" value="Login" class="btn-info" id="btn_log">
+                      <img id="log" src="{{ asset('landing/assets') }}/images/loader.html" alt="" style=" display: none; float: left;"/>
+                  </li>
+                  <li>
+                      <input type="checkbox" name="remember" id="remember" value="">
+                      <span class="remember">Remember Me</span>
+                      <a href="#" class="forgotPassword">Forgot your password?</a>
+                  </li></ul>
+              </form>
+            </div>
+        </div>
+        <!--Signup end-->
+
+
+@include('landing.layouts.footer')
+
 </body>
 
 </html>

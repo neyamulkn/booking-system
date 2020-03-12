@@ -3,259 +3,420 @@
   .nav-pills{
     margin-bottom: 0px !important;
   }
-
-  .image_upload{
-      position: absolute;left:0; border-radius: 50%; background:rgba(255,255,255,.7); text-align: center; padding-top:40%; width: 100%; height: 100%; display: none;transition: 2s;
-    }
-
-    .user_imagess:hover .image_upload{
-        display: block;
-        position: absolute;left:0;
-        top: 0px;
-        transition: 2s;
-    }
-
-    .editBtn{
-        position: absolute;
-        bottom: 0;
-        right: 0px;
-        padding: 2px 8px;
-        background: #0000009e;
-        color: #fff;
-        cursor: pointer;
-    }
-   
 </style>
 
 @section('content')
-@include('student.menubar')
-  <div class="container">
+
+<div class="container">
 
   <div class="content">
 
     <div class="content-container">
+      <div>
+        <h4 class="heading-inline">Weekly Teaching Stats
+        &nbsp;&nbsp;<small>For the week of Jun 01 - Jun 07, 2020</small>
+        &nbsp;&nbsp;</h4>
+      </div>
 
-      <div class="content-header">
-        <h2 class="content-header-title">User Profile </h2>
-
-      </div> <!-- /.content-header -->
+      <br>
 
       <div class="row">
 
-        <div class="col-md-9">
+        <div class="col-sm-6 col-md-3">
+          <div class="row-stat">
+            <p class="row-stat-label">Total Studens</p>
+            <h3 class="row-stat-value">50</h3>
+            <span class="label label-success row-stat-badge">+43%</span>
+          </div> <!-- /.row-stat -->
+        </div> <!-- /.col -->
 
-          <div class="row">
+        <div class="col-sm-6 col-md-3">
+          <div class="row-stat">
+            <p class="row-stat-label">Today Clases</p>
+            <h3 class="row-stat-value">12</h3>
+            <span class="label label-success row-stat-badge">+17%</span>
+          </div> <!-- /.row-stat -->
+        </div> <!-- /.col -->
 
-            <div class="col-md-4 col-sm-5">
+        <div class="col-sm-6 col-md-3">
+          <div class="row-stat">
+            <p class="row-stat-label">Total Clases</p>
+            <h3 class="row-stat-value">98,290</h3>
+            <span class="label label-success row-stat-badge">+26%</span>
+          </div> <!-- /.row-stat -->
+        </div> <!-- /.col -->
 
-              <div class="thumbnail" data-toggle="modal" data-target="#user_imageModal" style="position: relative;">
-                <img src="{{ asset('images/users/'.$userIfno->image)}}" alt="Profile Picture" />
-               <div class="editBtn"> Edit </div>
-              </div> <!-- /.thumbnail -->
-
-              <br />
-
-              <div class="list-group">
-
-                <a href="javascript:;" class="list-group-item">
-                  <i class="fa fa-asterisk"></i> &nbsp;&nbsp;Activity Feed
-
-                  <i class="fa fa-chevron-right list-group-chevron"></i>
-                </a>
-
-                <a href="javascript:;" class="list-group-item">
-                  <i class="fa fa-book"></i> &nbsp;&nbsp;Projects
-
-                  <i class="fa fa-chevron-right list-group-chevron"></i>
-                  <span class="badge">3</span>
-                </a>
-
-                <a href="javascript:;" class="list-group-item">
-                  <i class="fa fa-envelope"></i> &nbsp;&nbsp;Messages
-
-                  <i class="fa fa-chevron-right list-group-chevron"></i>
-                </a>
-
-                <a href="javascript:;" class="list-group-item">
-                  <i class="fa fa-group"></i> &nbsp;&nbsp;Friends
-
-                  <i class="fa fa-chevron-right list-group-chevron"></i>
-                  <span class="badge">7</span>
-                </a>
-
-                <a href="javascript:;" class="list-group-item">
-                  <i class="fa fa-cog"></i> &nbsp;&nbsp;Settings
-
-                  <i class="fa fa-chevron-right list-group-chevron"></i>
-                </a>
-              </div> <!-- /.list-group -->
-
-            </div> <!-- /.col -->
+        <div class="col-sm-6 col-md-3">
+          <div class="row-stat">
+            <p class="row-stat-label">Currently Active Students</p>
+            <h3 class="row-stat-value">19</h3>
+            <span class="label label-danger row-stat-badge">+5%</span>
+          </div> <!-- /.row-stat -->
+        </div> <!-- /.col -->
+        
+      </div> <!-- /.row -->
 
 
-            <div class="col-md-8 col-sm-7">
-
-              <h2>{{$userIfno->name}}</h2>
-
-              <h4>Visual, UI, UX Designer</h4>
-
-              <hr />
-
-              <p>
-                <a href="javascript:;" class="btn btn-primary">Follow Rod</a>
-                &nbsp;&nbsp;
-                <a href="javascript:;" class="btn btn-secondary">Send Message</a>
-              </p>
-
-              <hr />
+      <br>
 
 
-              <ul class="icons-list">
-                <li><i class="icon-li fa fa-envelope"></i>Email: {{$userIfno->email}}</li>
-                <li><i class="icon-li fa fa-globe"></i> Phone  {{$userIfno->phone}}</li>
-                <li><i class="icon-li fa fa-map-marker"></i> Gender: {{ ($userIfno->gender == 1 ? 'Male' : ( $userIfno->gender == 2  ? 'Female' : 'Others' ))}} </li>
-                <li><i class="icon-li fa fa-map-marker"></i> Birthday: {{ Carbon\Carbon::parse($userIfno->birthday)->format('d M, Y')}} </li>
-                <li><i class="icon-li fa fa-map-marker"></i> State: {{$userIfno->state}} </li>
-                <li><i class="icon-li fa fa-map-marker"></i> City: {{$userIfno->city}} </li>
-                <li><i class="icon-li fa fa-map-marker"></i> Country: {{$userIfno->country}} </li>
+
+      <div class="row">
+
+        <div class="col-md-8">
+
+
+          <div class="portlet">
+
+            <div class="portlet-header">
+
+              <h3>
+                <i class="fa fa-file-text-o"></i>
+                Student Booking List
+              </h3>
+
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-content panel-thread scrollable-panel">
+
+              <ul class="panel-lists">
+
+                <li>
+                  <img src="{{asset('images')}}/avatars/avatar-1-md.jpg" alt="Avatar" class="panel-list-avatar">
+                  <div class="panel-list-content">
+                      <span class="panel-list-time">20 mins</span>
+                      <a href="#" class="panel-list-title">Proin malesuada consectetur lectus. Ut vel lorem sed metus vulputate bibendum.</a>
+                      <span class="panel-list-meta">asked by <a href="#">John Doe</a> in <a href="#">Admin Themes</a></span>
+                  </div>
+                </li>
+
+                <li>
+                  <img src="{{asset('images')}}/avatars/avatar-2-md.jpg" alt="Avatar" class="panel-list-avatar">
+                  <div class="panel-list-content">
+                      <span class="panel-list-time">20 mins</span>
+                      <a href="#" class="panel-list-title">Nunc egestas, sapien vel feugiat varius, ligula urna mattis odio, ut mollis urna nunc id risus. Mauris congue bibendum turpis</a>
+                      <span class="panel-list-meta">asked by <a href="#">Jane Doe</a> in <a href="#">Site Templates</a></span>
+                  </div>
+                </li>
+
+                <li>
+                  <img src="{{asset('images')}}/avatars/avatar-1-md.jpg" alt="Avatar" class="panel-list-avatar">
+                  <div class="panel-list-content">
+                      <span class="panel-list-time">20 mins</span>
+                      <a href="#" class="panel-list-title">Proin malesuada consectetur lectus. Ut vel lorem sed metus vulputate bibendum.</a>
+                      <span class="panel-list-meta">asked by <a href="#">John Doe</a> in <a href="#">Admin Themes</a></span>
+                  </div>
+                </li>
+
+                <li>
+                  <img src="{{asset('images')}}/avatars/avatar-2-md.jpg" alt="Avatar" class="panel-list-avatar">
+                  <div class="panel-list-content">
+                      <span class="panel-list-time">20 mins</span>
+                      <a href="#" class="panel-list-title">Nunc egestas, sapien vel feugiat varius, ligula urna mattis odio, ut mollis urna nunc id risus. Mauris congue bibendum turpis</a>
+                      <span class="panel-list-meta">asked by <a href="#">Jane Doe</a> in <a href="#">Site Templates</a></span>
+                  </div>
+                </li>
+
+                <li>
+                  <img src="{{asset('images')}}/avatars/avatar-1-md.jpg" alt="Avatar" class="panel-list-avatar">
+                  <div class="panel-list-content">
+                      <span class="panel-list-time">20 mins</span>
+                      <a href="#" class="panel-list-title">Proin malesuada consectetur lectus. Ut vel lorem sed metus vulputate bibendum.</a>
+                      <span class="panel-list-meta">asked by <a href="#">John Doe</a> in <a href="#">Admin Themes</a></span>
+                  </div>
+                </li>
+
+                <li>
+                  <img src="{{asset('images')}}/avatars/avatar-2-md.jpg" alt="Avatar" class="panel-list-avatar">
+                  <div class="panel-list-content">
+                      <span class="panel-list-time">20 mins</span>
+                      <a href="#" class="panel-list-title">Nunc egestas, sapien vel feugiat varius, ligula urna mattis odio, ut mollis urna nunc id risus. Mauris congue bibendum turpis</a>
+                      <span class="panel-list-meta">asked by <a href="#">Jane Doe</a> in <a href="#">Site Templates</a></span>
+                  </div>
+                </li>
+
+                <li>
+                  <img src="{{asset('images')}}/avatars/avatar-1-md.jpg" alt="Avatar" class="panel-list-avatar">
+                  <div class="panel-list-content">
+                      <span class="panel-list-time">20 mins</span>
+                      <a href="#" class="panel-list-title">Proin malesuada consectetur lectus. Ut vel lorem sed metus vulputate bibendum.</a>
+                      <span class="panel-list-meta">asked by <a href="#">John Doe</a> in <a href="#">Admin Themes</a></span>
+                  </div>
+                </li>
+
+                <li>
+                  <img src="{{asset('images')}}/avatars/avatar-2-md.jpg" alt="Avatar" class="panel-list-avatar">
+                  <div class="panel-list-content">
+                      <span class="panel-list-time">20 mins</span>
+                      <a href="#" class="panel-list-title">Nunc egestas, sapien vel feugiat varius, ligula urna mattis odio, ut mollis urna nunc id risus. Mauris congue bibendum turpis</a>
+                      <span class="panel-list-meta">asked by <a href="#">Jane Doe</a> in <a href="#">Site Templates</a></span>
+                  </div>
+                </li>
+                                        
               </ul>
 
-              <br />
 
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+            </div> <!-- /.portlet-content -->
 
-             
-          
-            </div> <!-- /.col -->
+          </div> <!-- /.portlet -->
 
-          </div> <!-- /.row -->
+
+          <div class="portlet portlet-table">
+
+            <div class="portlet-header">
+
+              <h3>
+                <i class="fa fa-group"></i>
+                Recent Signups
+              </h3>
+
+              <ul class="portlet-tools pull-right">
+                <li>
+                  <button class="btn btn-sm btn-default">
+                    Add User
+                  </button>
+                </li>
+              </ul>
+
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-content">
+
+
+              <div class="table-responsive">
+
+                <table id="user-signups" class="table table-striped table-bordered table-checkable"> 
+                  <thead> 
+                    <tr> 
+                      <th class="checkbox-column"> 
+                        <input type="checkbox" id="check-all" class="icheck-input" />
+                      </th> 
+                      <th class="hidden-xs">First Name</th> 
+                      <th>Last Name</th> 
+                      <th>Status</th>
+                      <th class="text-center" style="width: 90px">Approve</th>
+                    </tr> 
+                  </thead> 
+
+                  <tbody> 
+                    <tr> 
+                      <td class="checkbox-column"> 
+                        <input type="checkbox" name="actiony" value="joey" class="icheck-input"> 
+                      </td> 
+
+                      <td class="hidden-xs">Joey</td> 
+                      <td>Greyson</td> 
+                      <td><span class="label label-success">Approved</span></td> 
+                      <td class="text-center">
+                        <a href="javascript:void(0);" class="btn btn-xs btn-primary" data-original-title="Approve">
+                          <i class="fa fa-check"></i>
+                        </a> 
+                      </td> 
+                    </tr> 
+
+                    <tr> 
+                      <td class="checkbox-column"> 
+                        <input type="checkbox" name="actiony" value="wolf" class="icheck-input">
+                      </td> 
+                      <td class="hidden-xs">Wolf</td> 
+                      <td>Bud</td> <td><span class="label label-default">Pending</span>
+                      </td>  
+                      <td class="text-center">
+                        <a href="javascript:void(0);" class="btn btn-xs btn-primary" data-original-title="Approve">
+                          <i class="fa fa-check"></i>
+                        </a> 
+                      </td> 
+                    </tr> 
+
+                    <tr> 
+                      <td class="checkbox-column"> 
+                        <input type="checkbox" name="actiony" value="sam" class="icheck-input"> 
+                      </td> 
+
+                      <td class="hidden-xs">Sam</td> 
+                      <td>Mitchell</td> 
+                      <td><span class="label label-success">Approved</span></td>  
+                      <td class="text-center">
+                        <a href="javascript:void(0);" class="btn btn-xs btn-primary" data-original-title="Approve">
+                          <i class="fa fa-check"></i>
+                        </a> 
+                      </td> 
+                    </tr> 
+
+                    <tr> 
+                      <td class="checkbox-column"> 
+                        <input type="checkbox" value="carlos" name="actiony" class="icheck-input"> 
+                      </td> 
+                      <td class="hidden-xs">Carlos</td> 
+                      <td>Lopez</td> 
+                      <td><span class="label label-success">Approved</span></td> 
+                      <td class="text-center">
+                        <a href="javascript:void(0);" class="btn btn-xs btn-primary" data-original-title="Approve">
+                          <i class="fa fa-check"></i>
+                        </a> 
+                      </td>  
+                    </tr>  
+
+                    <tr> 
+                      <td class="checkbox-column"> 
+                        <input type="checkbox" name="actiony" value="rob" class="icheck-input"> 
+                      </td> 
+                      <td class="hidden-xs">Rob</td> 
+                      <td>Johnson</td> 
+                      <td><span class="label label-default">Pending</span></td> 
+                      <td class="text-center">
+                        <a href="javascript:void(0);" class="btn btn-xs btn-primary" data-original-title="Approve">
+                          <i class="fa fa-check"></i>
+                        </a> 
+                      </td> 
+                    </tr> 
+
+                    <tr> 
+                      <td class="checkbox-column"> 
+                        <input type="checkbox" value="mike" name="actiony" class="icheck-input"> 
+                      </td> 
+                      <td class="hidden-xs">Mike</td> 
+                      <td>Jones</td> 
+                      <td><span class="label label-default">Pending</span></td>  
+                      <td class="text-center">
+                        <a href="javascript:void(0);" class="btn btn-xs btn-primary" data-original-title="Approve">
+                          <i class="fa fa-check"></i>
+                        </a> 
+                      </td> 
+                    </tr>            
+
+                  </tbody> 
+
+                </table>
+                  
+
+              </div> <!-- /.table-responsive -->
+                  
+            </div> <!-- /.portlet-content -->
+
+            <div class="portlet-footer">
+              <div class="text-right">                  
+                Apply to Selected: &nbsp;&nbsp;
+                <select id="apply-selected" name="table-select" class="ui-select2" style="width: 125px">
+                  <option value="">Select Action</option>
+                  <option value="approve">Approve</option>
+                  <option value="edit">Edit</option>
+                  <option value="delete">Delete</option>
+                  
+                </select>
+              </div>
+            </div> <!-- /.portlet-footer -->
+
+          </div> <!-- /.portlet -->
 
         </div> <!-- /.col -->
 
+        <div class="col-md-4">
 
-        <div class="col-md-3 col-sm-6 col-sidebar-right">
+          <div class="portlet">
 
-          <h4>Easy Statistics</h4>
+            <div class="portlet-header">
+
+              <h3>
+                <i class="fa fa-bar-chart-o"></i>
+                Donut Chart
+              </h3>
+
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-content">
+
+              <div id="donut-chart" class="chart-holder-225"></div>
+                  
+
+            </div> <!-- /.portlet-content -->
+
+          </div> <!-- /.portlet -->
+
+              
+
+          <div class="portlet">
+
+            <div class="portlet-header">
+
+              <h3>
+                <i class="fa fa-compass"></i>
+                Traffic Overview
+              </h3>
+
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-content">
+
+              <div class="progress-stat">
+                  
+                <div class="progress-stat-label">
+                  % New Visits
+                </div> <!-- /.stat-label -->
+                
+                <div class="progress-stat-value">
+                  77.7%
+                </div> <!-- /.stat-value -->
+                
+                <div class="progress progress-striped active">
+                  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                    <span class="sr-only">77.74% Visit Rate</span>
+                  </div>
+                </div> <!-- /.progress -->
+                
+              </div> <!-- /.progress-stat -->
 
 
-          <div class="list-group">
-
-            <a href="javascript:;" class="list-group-item"><h3 class="pull-right"><i class="fa fa-clock-o"></i></h3>
-                  <h4 class="list-group-item-heading">{{$userIfno->total_class}}</h4>
-                  <p class="list-group-item-text">Purchas Classes</p>
-
-                </a>
-
-            <a href="javascript:;" class="list-group-item"><h3 class="pull-right"><i class="fa fa-clock-o"></i></h3>
-                  <h4 class="list-group-item-heading">3</h4>
-                  <p class="list-group-item-text">Booked Classes</p>
-
-                </a>
-
-            <a href="javascript:;" class="list-group-item"><h3 class="pull-right"><i class="fa fa-clock-o"></i></h3>
-                  <h4 class="list-group-item-heading">3</h4>
-                  <p class="list-group-item-text">Finish Classes</p>
-
-                </a>
-
-            <a href="javascript:;" class="list-group-item"><h3 class="pull-right"><i class="fa fa-clock-o"></i></h3>
-                  <h4 class="list-group-item-heading">5</h4>
-                  <p class="list-group-item-text">Remaining Classes</p>
-
-                </a>
-          </div> <!-- /.list-group -->
-
-          <br />
+              <div class="progress-stat">
+                  
+                <div class="progress-stat-label">
+                  % Mobile Visitors
+                </div> <!-- /.stat-label -->
+                
+                <div class="progress-stat-value">
+                  33.2%
+                </div> <!-- /.stat-value -->
+                
+                <div class="progress progress-striped active">
+                  <div class="progress-bar progress-bar-tertiary" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%">
+                    <span class="sr-only">33% Mobile Visitors</span>
+                  </div>
+                </div> <!-- /.progress -->
+                
+              </div> <!-- /.progress-stat -->
 
 
+              <div class="progress-stat">
+                
+                <div class="progress-stat-label">
+                  Bounce Rate
+                </div> <!-- /.stat-label -->
+                
+                <div class="progress-stat-value">
+                  42.7%
+                </div> <!-- /.stat-value -->
+                
+                <div class="progress progress-striped active">
+                  <div class="progress-bar progress-bar-secondary" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" style="width: 42%">
+                    <span class="sr-only">42.7% Bounce Rate</span>
+                  </div>
+                </div> <!-- /.progress -->
+                
+              </div> <!-- /.progress-stat -->
 
-          <div class="well">
-            <h4>Recent Activity</h4>
+            </div> <!-- /.portlet-content -->
 
+          </div> <!-- /.portlet -->
 
-            <ul class="icons-list text-md">
-
-              <li>
-                <i class="icon-li fa fa-location-arrow"></i>
-
-                <strong>Rod</strong> uploaded 6 files.
-                <br />
-                <small>about 4 hours ago</small>
-              </li>
-
-              <li>
-                <i class="icon-li fa fa-location-arrow"></i>
-
-                <strong>Rod</strong> followed the research interest: <a href="javascript:;">Open Access Books in Linguistics</a>.
-                <br />
-                <small>about 23 hours ago</small>
-              </li>
-
-              <li>
-                <i class="icon-li fa fa-location-arrow"></i>
-
-                <strong>Rod</strong> added 51 papers.
-                <br />
-                <small>2 days ago</small>
-              </li>
-            </ul>
-
-          </div>
         </div> <!-- /.col -->
 
       </div> <!-- /.row -->
 
     </div> <!-- /.content-container -->
-
+      
   </div> <!-- /.content -->
 
 </div> <!-- /.container -->
 
-<div class="modal fade" id="user_imageModal" role="dialog">
-  <div class="modal-dialog">
-              
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Update image</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button> 
-      </div>
-      <form action="{{route('userImageUpdate')}}" method="post" enctype="multipart/form-data" id="form1" runat="server">
-        <div class="modal-body" style="text-align: center;">
-         
-          {{csrf_field()}}
-            <label for="user_imagess" class="user_imagess"  style="position: relative; margin: 0px auto; width: 200px;height: 200px; background: #ccc;border-radius: 50%;">
-            <input type='file' required="" name="user_image" style="display: none;" id="user_imagess" onchange="changeImage(this);" />
-            <img id="userimage" src="{{asset('images/users/'.$userIfno->image)}}" alt="" style=" width: 200px; height: 200px;border-radius: 50%;" />
 
-            <span class="image_upload"><span style="font-size: 35px" class="fa fa-picture-o"></span></span>
-            </label>
-       
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-default" >Update</button>
-        </div>
-      </form>
-    </div>
-
-  </div>
-</div>
-        
-@endsection
-
-@section('js')
-
-<script type="text/javascript">
-    function changeImage(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#userimage').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
 @endsection

@@ -7,7 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Session;
 class RegisterController extends Controller
 {
     /*
@@ -28,7 +28,13 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    public function redirectTo(){
+        if(Session::get('customPackageId')){
+            return route('package');
+        }else{
+            return '/dashboard';
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -52,11 +58,10 @@ class RegisterController extends Controller
             'fname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'gender' => ['required'],
+            'mobile' => ['required'],
             'birthday' => ['required'],
+            'role' => ['required'],
             'country' => ['required'],
-            'state' => ['required'],
-            'city' => ['required'],
-            'contact' => ['required'],
             'username' => ['required', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -65,22 +70,24 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['fname']." ".$data['lname'],
+            'name' => $data['fname'],
+            'lname' => $data['lname'],
             'email' => $data['email'],
             'mobile' => $data['mobile'],
             'gender' => $data['gender'],
             'birthday' => $data['birthday'],
             'country' => $data['country'],
-            'contact' => $data['contact'],
-            'state' => $data['state'],
-            'city' => $data['city'],
+            // 'state' => $data['state'],
+            // 'city' => $data['city'],
             'wechat' => $data['wechat'],
             'qq' => $data['qq'],
             'skype' => $data['skype'],
             'facebook' => $data['facebook'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
-            'user_roleID' => 3,
+            'user_roleID' => $data['role'],
         ]);
+
+
     }
 }

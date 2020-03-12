@@ -5,34 +5,39 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use Session;
+use Redirect;
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware(['auth','verified']);
+
+    public function index(){
+        return view('landing.index');
+    }
+    public function features(){
+        return view('landing.features');
+    }
+    public function reviews(){
+        return view('landing.reviews');
+    } 
+
+    public function privacy_policy(){
+        return view('landing.privacy-policy');
+    }
+    public function pricing(){
+        return view('landing.pricing');
+    }
+  
+
+    public function terms_of_use(){
+        return view('landing.terms-of-use');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        $userIfno = User::find(Auth::user()->id);
+    public function customPayment(Request $request, $packageId){
+        Session::put('customPackageId', $packageId);
         
-        if($userIfno->user_roleID == env('TEACHAR')){
-            return view('teacher.index')->with(compact('userIfno'));
-        }
+        if($request->cusAmount){ Session::put('cusAmount', $request->cusAmount); }
 
-        if($userIfno->user_roleID == env('STUDENT')){
-            //echo $this->slug();
-            return view('student.index')->with(compact('userIfno'));
-        }
+        return redirect::route('package');
     }
+
 }

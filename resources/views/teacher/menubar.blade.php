@@ -11,7 +11,7 @@
       <ul class="nav navbar-nav mainbar-nav">
 
         <li class="active">
-          <a href="{{url('/')}}">
+          <a href="{{route('dashboard')}}">
             <i class="fa fa-dashboard"></i>
             Dashboard
           </a>
@@ -35,7 +35,7 @@
         <li class="dropdown ">
           <a href="{{route('class_records')}}" >
             <i class="fa fa-align-left"></i>
-            Class Records
+            Session Records
           </a>
         </li>
   

@@ -48,13 +48,24 @@ class PaymentController extends Controller
     public function payWithpaypal(Request $request, $packageId)
     {
 
+
         //get package info and check this package valid or invalid
-        Session::put('paymentMethod', 'PayPal');
         $get_package = Package::where('id', $packageId)->first();
+        // if package exist
         if($get_package){
+            
+            Session::put('paymentMethod', 'PayPal');
             Session::put('packageId', $get_package->id);
+
             $item_name = $get_package->packageName;
-            $price = $get_package->amount;
+            //check is custom package 
+            if($request->amount){
+                $price = $request->amount;
+                Session::put('customAmount', $request->amount);
+            }else{
+                $price = $get_package->amount;
+            }
+          
         }else{
             Toastr::error('Invalid package selected.');
             return back();
@@ -143,6 +154,9 @@ class PaymentController extends Controller
         /** Get the payment ID before session clear **/
         $payment_id = Session::get('paypal_payment_id');
 
+         /// customPackageId forget teacherjackonline website 
+        Session::forget('customPackageId');
+        
         /** clear the session payment ID **/
         //Session::forget('paypal_payment_id');
         if (empty($request->input('PayerID')) || empty($request->input('token'))) {
